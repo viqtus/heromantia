@@ -6,7 +6,7 @@
 		<meta content="width=device-width" name="viewport"/>
 		<style>
 		</style>
-		<title>Heromantia 2015.2</title>
+		<title>Heromantia 2015.3</title>
 	</head>
 	<body>
 		<script>
@@ -14,11 +14,20 @@
 
 			var game =
 			{
+				create(type)
+				{
+					var object = JSON.parse(JSON.stringify(type));
+					return object;
+				},
+
 				regnum:
 				{
 					items:
 					{
-
+						coin:
+						{
+							gold: 1
+						}
 					},
 
 					perks:
@@ -60,6 +69,13 @@
 					}
 				}
 			};
+
+			var coin1 = game.create(game.regnum.items.coin);
+				coin1.gold = 1;
+			var coin2 = game.create(game.regnum.items.coin);
+				coin2.gold = 2;
+			window.console.log(coin1);
+			window.console.log(coin2);
 		</script>
 	</body>
 </html>
